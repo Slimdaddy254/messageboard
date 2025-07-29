@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1><%= title %></h1>
+    <a href="/new" style="display: block; margin: 10px 0;">➕ Add New Message</a>
+
+
+    <div class="chat-box">
+        <% messages.forEach((message, index) => { %>
+            <div class="message">
+            <div class="avatar">
+                <%= message.user ? message.user.split(' ').map(w => w[0]).join('').toUpperCase() : '👤' %>
+
+            </div>
+            <div class="message-content">
+                <div class="username"><%= message.user %></div>
+                <div class="text"><%= message.text %></div>
+                <div class="timestamp"><%= message.added.toLocaleString() %></div>
+                <a href="/message/<%= index %>" class="open-link">Open</a>
+            </div>
+            </div>
+        <% }) %>
+    </div>
+
+  </div>
+
+<script>
+  const container = document.getElementById("messages");
+  if (container) {
+    container.scrollTop = container.scrollHeight;
+  }
+</script>
+
+</body>
+</html>

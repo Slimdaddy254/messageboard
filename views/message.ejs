@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Message Detail</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Message by <%= message.user %></h1>
+    <div class="chat-message">
+      <img src="https://ui-avatars.com/api/?name=<%= encodeURIComponent(message.user) %>&background=0277bd&color=fff&rounded=true&size=48" alt="avatar" class="avatar">
+    <div>
+      <strong><%= message.user %></strong>
+      <p><%= message.text %></p>
+      <small><%= message.added.toLocaleString() %></small>
+      <a href="/message/<%= index %>">Open</a>
+    </div>
+    <a href="/">← Back to messages</a>
+  </div>
+</body>
+</html>
